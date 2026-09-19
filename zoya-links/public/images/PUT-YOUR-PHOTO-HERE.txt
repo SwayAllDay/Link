@@ -1,0 +1,7 @@
+Add your portrait to this folder as:  zoya.jpg
+
+Tips
+- Portrait orientation, about 4:5 (for example 1200 x 1500 px)
+- Keep your face in the upper half; the bottom third fades into black behind your name and icons
+- Under about 400 KB (export as JPG, quality ~80)
+- To use another file name, change "photo" in public/config.json and the src in public/index.html

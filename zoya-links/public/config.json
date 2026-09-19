@@ -1,0 +1,145 @@
+{
+  "name": "ZOYA",
+  "handle": "@zoyasmusic",
+  "photo": "/images/zoya.jpg",
+  "photoPosition": "50% 12%",
+  "bio": "Bulgarian singer-songwriter, producer and DJ with a genre-blending sound and emotive storytelling. Supported by BBC Radio 1 and FG Radio Paris, and released on Black Hole Recordings and Anjunabeats.",
+  "social": [
+    {
+      "type": "instagram",
+      "url": "https://www.instagram.com/zoyasmusic"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/@zoyasmusic"
+    },
+    {
+      "type": "spotify",
+      "url": ""
+    },
+    {
+      "type": "facebook",
+      "url": ""
+    },
+    {
+      "type": "soundcloud",
+      "url": ""
+    },
+    {
+      "type": "tiktok",
+      "url": "https://www.tiktok.com/@zoyasmusic"
+    },
+    {
+      "type": "link",
+      "url": "",
+      "label": "Smart link"
+    }
+  ],
+  "featured": {
+    "auto": "latest-release",
+    "badge": "New release",
+    "button": "Listen now",
+    "title": "",
+    "subtitle": "",
+    "image": "",
+    "url": ""
+  },
+  "releases": {
+    "limit": 8,
+    "moreLabel": "All on Spotify",
+    "moreUrl": "",
+    "items": [
+      {
+        "title": "Hold The Horizon",
+        "type": "single",
+        "date": "2026-08-27",
+        "image": "/images/releases/hold-the-horizon.jpg",
+        "links": {
+          "spotify": "https://open.spotify.com/album/4JDggnckzSNvCANjLuneW0",
+          "apple": "https://music.apple.com/us/album/hold-the-horizon-single/6798405209",
+          "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_k3FQERu8sI0UgAvDiHH9IGpBjyJMSSMYk",
+          "youtube": "https://www.youtube.com/watch?v=AJbpYxk3o_8"
+        }
+      },
+      {
+        "title": "The World Goes Mute",
+        "type": "single",
+        "date": "2026-07-23",
+        "image": "/images/releases/The-world-goes-mute.jpg",
+        "links": {
+          "spotify": "https://open.spotify.com/album/3q8XCNUIFzGCzNmYXi2hdm",
+          "apple": "https://music.apple.com/us/album/the-world-goes-mute/6785643793?i=6785643796",
+          "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_maZCtT9Vw4ozkF8i1viiEAG9BZwLalxMQ",
+          "youtube": "https://www.youtube.com/watch?v=sosBp7D3zCc"
+        }
+      },
+      {
+        "title": "Pulled Under",
+        "type": "single",
+        "date": "2026-06-25",
+        "image": "/images/releases/pulled-under.jpg",
+        "links": {
+          "spotify": "https://open.spotify.com/album/0CO0lkqhJhmnpExBZQ05jG",
+          "apple": "https://music.apple.com/us/album/pulled-under-single/6779584378",
+          "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_kxGitzoSfB969o2V9L9FVkmSMNE863CyA",
+          "youtube": "https://www.youtube.com/watch?v=G-iq2Y0VdxQ"
+        }
+      },
+      {
+        "title": "Still Frame",
+        "type": "single",
+        "date": "2026-06-04",
+        "image": "/images/releases/still-frame-cover.jpg",
+        "links": {
+          "spotify": "https://open.spotify.com/album/65ZkkJLkPDuojJUqOCIuo3",
+          "apple": "https://music.apple.com/us/album/still-frame-single/6770858080",
+          "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_mMVut_TgVwemdwAfklZ-t2HtenTEEB0q8",
+          "youtube": "https://www.youtube.com/watch?v=2g16h-K2Ajs"
+        }
+      },
+      {
+        "title": "Fever In The Silence",
+        "type": "single",
+        "date": "2026-05-14",
+        "image": "/images/releases/fever-cover.jpg",
+        "links": {
+          "spotify": "https://open.spotify.com/album/5iY94mIB3V9gATZgvKHkG9",
+          "apple": "https://music.apple.com/us/album/fever-in-the-silence-single/1896127153",
+          "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_k59aXwHclSzy4fE4nGemvhF91t-cYEYwE",
+          "youtube": "https://www.youtube.com/watch?v=QpRA4A5abNM"
+        }
+      },
+      {
+        "title": "Future Calling",
+        "type": "single",
+        "date": "2026-04-24",
+        "image": "/images/releases/future-calling-cover.jpg",
+        "links": {
+          "spotify": "https://open.spotify.com/album/05Vgzjo5gCiwtsOsPlGKlX",
+          "apple": "https://music.apple.com/us/album/future-calling-single/1892638294",
+          "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_kmJlGhOe0Zeo6JOWLLvvSXxICECLiL5uY",
+          "youtube": "https://www.youtube.com/watch?v=QMuRjXK3wjE"
+        }
+      },
+      {
+        "title": "Living The Moment",
+        "type": "single",
+        "date": "2026-03-13",
+        "image": "/images/releases/living-the-moment-cover.jpg",
+        "links": {
+          "spotify": "https://open.spotify.com/album/1mcijQwtuSLidVApZXz1sT",
+          "apple": "https://music.apple.com/us/album/living-the-moment-single/1880672318",
+          "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_nxwbLGqWkwZVUeOR7t162--I_op904aaU",
+          "youtube": "https://www.youtube.com/watch?v=LZ2X_pGdyt4"
+        }
+      }
+    ]
+  },
+  "youtube": {
+    "channelId": "",
+    "setsPlaylistId": "",
+    "limit": 4,
+    "titleFilter": [],
+    "items": []
+  }
+}

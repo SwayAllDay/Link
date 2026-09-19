@@ -1,0 +1,14 @@
+{
+  "name": "zoya-links",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Link-in-bio page for ZOYA, served on Cloudflare Workers",
+  "scripts": {
+    "check": "node scripts/check-config.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

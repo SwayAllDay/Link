@@ -1,0 +1,14 @@
+Upload your 7 cover files into this folder with EXACTLY these names (capital letters matter):
+
+  hold-the-horizon.jpg
+  The-world-goes-mute.jpg        <- capital T
+  pulled-under.jpg
+  still-frame-cover.jpg
+  fever-cover.jpg
+  future-calling-cover.jpg
+  living-the-moment-cover.jpg
+
+- Square JPG, 1000 x 1000 px is plenty, under about 300 KB each
+- These names are already set in public/config.json. If you use a different name for a file,
+  change the matching "image" line in config.json to the same name.
+- Until all 7 files are here, the deploy check fails on purpose and tells you which one is missing.
