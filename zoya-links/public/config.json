@@ -135,11 +135,10 @@
       }
     ]
   },
-  "youtube": {
-    "channelId": "",
-    "setsPlaylistId": "",
+   "youtube": {
+    "channelId": "UCng6xfQhliYeTL-qNfZWUxw",
+    "setsPlaylistId": "PL_Y6nPtIAVIHy7sM7F0pWHuAo_G-PHhJz",
     "limit": 4,
     "titleFilter": [],
     "items": []
   }
-}
