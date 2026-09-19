@@ -104,7 +104,9 @@
   /* ---------- top of the page ---------- */
 
   function renderTop(cfg) {
-    if (cfg.name) $("#name").textContent = cfg.name;
+    const logo = $("#logo"); // the ZOYA logo image; if it failed to load the page swaps in the name as text
+    if (logo) logo.alt = cfg.name || "ZOYA";
+    else if (cfg.name) $("#name").textContent = cfg.name;
     if (cfg.handle) $("#handle").textContent = cfg.handle;
     if (cfg.name) document.title = `${cfg.name} | Links`;
 
@@ -124,12 +126,29 @@
       })
       .join("");
 
-    $("#bio").innerHTML = String(cfg.bio || "")
-      .split(/\n{2,}/)
-      .filter(Boolean)
-      .map((p) => `<p>${esc(p)}</p>`)
-      .join("");
-    if (!cfg.bio) $("#bio").remove();
+    // Bio: "bio" is always visible; "bioMore" (a list of paragraphs) opens under a Read more button
+    const para = (t) => `<p>${esc(t)}</p>`;
+    const lead = String(cfg.bio || "").split(/\n{2,}/).filter(Boolean);
+    const more = [].concat(cfg.bioMore || []).map(String).filter(Boolean);
+    const bioEl = $("#bio");
+    if (!lead.length && !more.length) {
+      bioEl.remove();
+    } else {
+      bioEl.innerHTML =
+        `<div class="bio__lead">${lead.map(para).join("")}</div>` +
+        (more.length
+          ? `<div class="bio__more" id="bio-more"><div>${more.map(para).join("")}</div></div>
+             <button class="bio__toggle" type="button" aria-expanded="false" aria-controls="bio-more">Read more</button>`
+          : "");
+      if (more.length) {
+        const panel = $("#bio-more"), btn = $(".bio__toggle");
+        btn.addEventListener("click", () => {
+          const open = panel.classList.toggle("is-open");
+          btn.setAttribute("aria-expanded", String(open));
+          btn.textContent = open ? "Show less" : "Read more";
+        });
+      }
+    }
 
     $("#foot").textContent = `© ${new Date().getFullYear()} ${cfg.name || ""}`.trim();
   }
@@ -334,7 +353,9 @@
     setupPopup();
 
     const releases = getReleases(cfg);
-    renderReleases(cfg, releases);
+    // When the featured card shows the newest release, don't repeat it in the row below
+    const featuredIsLatest = cfg.featured && cfg.featured.auto === "latest-release" && !cfg.featured.url && releases.length > 0;
+    renderReleases(cfg, featuredIsLatest ? releases.slice(1) : releases);
     renderFeatured(cfg, releases);
 
     const yt = cfg.youtube || {};
