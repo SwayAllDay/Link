@@ -72,3 +72,5 @@ Cloudflare runs `npm run check` before each deploy. If `config.json` has a typo 
 
 - Sets missing: open `/api/sets` on your site to see the exact error.
 - Cover missing: check the file name matches `config.json` exactly, including capitals.
+
+- 
