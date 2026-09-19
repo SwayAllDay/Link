@@ -1,6 +1,6 @@
 {
   // The name must match the Worker name you give in the Cloudflare dashboard.
-  "name": "zoya-links",
+  "name": "link",
   "main": "src/worker.js",
   "compatibility_date": "2026-09-01",
   "assets": {
