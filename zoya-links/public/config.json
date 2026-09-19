@@ -131,11 +131,22 @@
       }
     ]
   },
-   "youtube": {
+    "youtube": {
     "channelId": "UCng6xfQhliYeTL-qNfZWUxw",
-    "setsPlaylistId": "PL_Y6nPtIAVIHy7sM7F0pWHuAo_G-PHhJz",
+    "setsPlaylistId": "",
     "limit": 4,
     "titleFilter": [],
-    "items": []
+    "items": [
+      {
+        "title": "ZOYA - Eternity (Album Showcase)",
+        "url": "https://www.youtube.com/watch?v=K6SZM1JkfgE&t"
+      },
+      {
+        "title": "ZOYA - In Search of Sunrise Set",
+        "url": "https://www.youtube.com/watch?v=G4zOgfDNE-U&t"
+      },
+      {
+        "title": "ZOYA - Live @ Ministry of Sound, London 2024",
+        "url": "https://www.youtube.com/watch?v=iqmxLzaTGnA"
+    ]
   }
-}
