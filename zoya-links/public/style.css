@@ -103,15 +103,22 @@ a:focus-visible { outline: 2px solid var(--blush); outline-offset: 3px; }
   text-align: center;
   animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
-.hero__name {
+.hero__name { line-height: 1; }
+.hero__logo {
+  display: block;
+  width: clamp(190px, 60vw, 250px);
+  height: auto;
+  filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.35));
+}
+/* Fallback if the logo file is missing: the name as thin, wide-set text */
+.hero__name.is-text {
   font-size: clamp(46px, 14vw, 68px);
   font-weight: 300;
-  line-height: 1;
   letter-spacing: 0.24em;
   padding-left: 0.24em; /* balances the trailing letter-spacing so the word looks centred */
 }
 .hero__handle {
-  margin-top: 10px;
+  margin-top: 14px;
   font-size: 14px;
   letter-spacing: 0.04em;
   color: var(--muted);
@@ -165,8 +172,38 @@ a:focus-visible { outline: 2px solid var(--blush); outline-offset: 3px; }
   font-size: 15px;
   line-height: 1.65;
   color: rgba(246, 240, 237, 0.86);
+  text-wrap: pretty;
 }
 .bio p + p { margin-top: 0.8em; }
+
+/* "Read more": the extra paragraphs slide open (grid rows 0fr to 1fr) */
+.bio__more {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden; /* keeps hidden text out of tab order and screen readers while closed */
+  transition: grid-template-rows 0.32s ease, visibility 0s 0.32s;
+}
+.bio__more.is-open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.32s ease;
+}
+.bio__more > div { min-height: 0; overflow: hidden; }
+.bio__more p { margin-top: 0.8em; }
+.bio__toggle {
+  margin-top: 6px;
+  padding: 12px 16px;
+  border: 0;
+  background: none;
+  color: var(--blush);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.bio__toggle:focus-visible { outline: 2px solid var(--blush); outline-offset: 2px; border-radius: 6px; }
 
 /* ---------- content column ---------- */
 
@@ -485,5 +522,6 @@ body:has(.popup[open]) { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero__body, .skeleton, .popup[open] { animation: none; }
+  .bio__more, .bio__more.is-open { transition: none; }
   * { transition: none !important; }
 }
