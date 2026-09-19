@@ -108,11 +108,12 @@
     if (cfg.handle) $("#handle").textContent = cfg.handle;
     if (cfg.name) document.title = `${cfg.name} | Links`;
 
+    const heroImg = $("#heroImg"); // removed by the page itself if the photo file is missing
     if (cfg.photo && cfg.photo !== "/images/zoya.jpg") {
-      $("#heroImg").src = cfg.photo;
+      if (heroImg) heroImg.src = cfg.photo;
       document.documentElement.style.setProperty("--photo", `url("${cfg.photo}")`);
     }
-    if (cfg.photoPosition) $("#heroImg").style.objectPosition = cfg.photoPosition;
+    if (cfg.photoPosition && heroImg) heroImg.style.objectPosition = cfg.photoPosition;
 
     $("#socials").innerHTML = (cfg.social || [])
       .filter((s) => s.url)
@@ -257,7 +258,8 @@
 
   const ytId = (u = "") => (u.match(/(?:v=|youtu\.be\/|\/live\/|\/embed\/|\/shorts\/)([\w-]{11})/) || [])[1] || "";
 
-  // Optional hand-written sets in config.json. Without an image, YouTube's own thumbnail is used.
+  // Hand-picked sets from config.json, shown in the order you list them (the first one is the big one).
+  // Without an image, YouTube's own thumbnail is used.
   function manualSets(yt) {
     const sets = yt.items
       .map((s) => {
@@ -273,8 +275,7 @@
           thumbnailFallback: local || !id ? "" : `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
         };
       })
-      .filter((s) => s.title && s.url && s.thumbnail)
-      .sort((a, b) => b.published.localeCompare(a.published));
+      .filter((s) => s.title && s.url && s.thumbnail); // keep the order you wrote in config.json
     return { channelUrl: yt.channelId ? `https://www.youtube.com/channel/${yt.channelId}` : "", sets };
   }
 
