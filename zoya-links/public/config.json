@@ -26,10 +26,6 @@
       "url": "https://soundcloud.com/zoyasmusic"
     },
     {
-      "type": "",
-      "url": ""
-    },
-    {
       "type": "link",
       "url": "",
       "label": "Smart link"
@@ -47,7 +43,7 @@
   "releases": {
     "limit": 8,
     "moreLabel": "All on Spotify",
-    "moreUrl": "",
+    "moreUrl": "https://open.spotify.com/artist/5eqThkuR9VjiLuYfzESTp7",
     "items": [
       {
         "title": "Hold The Horizon",
