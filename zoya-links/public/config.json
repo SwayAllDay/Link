@@ -15,19 +15,19 @@
     },
     {
       "type": "spotify",
-      "url": ""
+      "url": "https://open.spotify.com/artist/5eqThkuR9VjiLuYfzESTp7"
     },
     {
       "type": "facebook",
-      "url": ""
+      "url": "https://www.facebook.com/Zoyasmusic"
     },
     {
       "type": "soundcloud",
-      "url": ""
+      "url": "https://soundcloud.com/zoyasmusic"
     },
     {
-      "type": "tiktok",
-      "url": "https://www.tiktok.com/@zoyasmusic"
+      "type": "",
+      "url": ""
     },
     {
       "type": "link",
