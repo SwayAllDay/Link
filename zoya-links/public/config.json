@@ -3,7 +3,15 @@
   "handle": "@zoyasmusic",
   "photo": "/images/zoya.jpg",
   "photoPosition": "50% 12%",
-  "bio": "ZOYA is a Bulgarian producer and DJ carving her own path through melodic electronic music. With over 2 million monthly listeners and more than 35 million Spotify streams, ZOYA has emerged as one of the fastest-growing independent artists in her space, building a global audience while maintaining an independent creative vision",
+    "bio": "ZOYA is a Bulgarian producer and DJ carving her own path through melodic electronic music. With over 2 million monthly listeners and more than 35 million Spotify streams.",
+  "bioMore": [
+    "ZOYA has emerged as one of the fastest-growing independent artists in her space, building a global audience while maintaining an independent creative vision.",
+    "In the past, her music has been released through renowned labels including Anjunabeats, Armada Music and Black Hole Recordings, with support from BBC Radio 1 and FG Radio Paris.",
+    "In 2024, ZOYA made history as the first female artist to mix the iconic In Search of Sunrise compilation series, originally founded by Tiësto, a landmark moment in one of electronic music’s most celebrated compilation franchises.",
+    "In 2025, she launched Sway All Day, her independent label and creative platform, giving her full creative control over a rapidly expanding catalogue of original music.",
+    "Beyond streaming, ZOYA has brought her sound to stages around the world, performing at Groove Cruise Miami, Ministry of Sound London, Luminosity Beach Festival and Vienna Pride, alongside touring across Europe, the USA, China, India and Mauritius. She has also shared stages with some of electronic music’s biggest names, including Tiësto, John Summit, Diplo and more.",
+    "With each performance and release, ZOYA continues to redefine boundaries and build a musical sanctuary that captivates audiences worldwide."
+  ],
   "social": [
     {
       "type": "instagram",
