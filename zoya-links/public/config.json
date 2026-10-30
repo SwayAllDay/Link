@@ -63,6 +63,8 @@
           "apple": "https://music.apple.com/us/album/fading-light-single/6820499051",
           "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_lXT9yYXCrDMYncRySfXkgEh21rrxtBWyc",
           "youtube": ""
+          "beatport": "https://www.beatport.com/nl/release/fading-light/7631251",
+          "soundcloud": "https://soundcloud.com/zoyasmusic/zoya-fading-light-radio-mix-1"
         }
       },
       {
@@ -75,6 +77,8 @@
           "apple": "https://music.apple.com/us/album/not-yet-single/6810732432",
           "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_nDp3Km7FaN3sdlFQ5Rwspl_O-MC8zIwAE",
           "youtube": "https://www.youtube.com/watch?v=MISfDqO3aok"
+          "beatport": "",
+          "soundcloud": "https://soundcloud.com/zoyasmusic/not-yet"
         }
       },
       {
@@ -87,6 +91,8 @@
           "apple": "https://music.apple.com/us/album/hold-the-horizon-single/6798405209",
           "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_k3FQERu8sI0UgAvDiHH9IGpBjyJMSSMYk",
           "youtube": "https://www.youtube.com/watch?v=AJbpYxk3o_8"
+          "beatport": "https://www.beatport.com/nl/release/hold-the-horizon/7392237",
+          "soundcloud": "https://soundcloud.com/zoyasmusic/hold-the-horizon"
         }
       },
       {
@@ -99,6 +105,8 @@
           "apple": "https://music.apple.com/us/album/the-world-goes-mute/6785643793?i=6785643796",
           "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_maZCtT9Vw4ozkF8i1viiEAG9BZwLalxMQ",
           "youtube": "https://www.youtube.com/watch?v=sosBp7D3zCc"
+           "beatport": "",
+          "soundcloud": "https://soundcloud.com/zoyasmusic/the-world-goes-mute"
         }
       },
       {
@@ -111,6 +119,8 @@
           "apple": "https://music.apple.com/us/album/pulled-under-single/6779584378",
           "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_kxGitzoSfB969o2V9L9FVkmSMNE863CyA",
           "youtube": "https://www.youtube.com/watch?v=G-iq2Y0VdxQ"
+          "beatport": "https://www.beatport.com/nl/release/pulled-under/7108708",
+          "soundcloud": "https://soundcloud.com/zoyasmusic/pulled-under"
         }
       },
       {
@@ -123,6 +133,8 @@
           "apple": "https://music.apple.com/us/album/still-frame-single/6770858080",
           "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_mMVut_TgVwemdwAfklZ-t2HtenTEEB0q8",
           "youtube": "https://www.youtube.com/watch?v=2g16h-K2Ajs"
+          "beatport": "https://www.beatport.com/nl/release/still-frame/7010150",
+          "soundcloud": "https://soundcloud.com/zoyasmusic/still-frame"
         }
       },
       {
@@ -135,6 +147,8 @@
           "apple": "https://music.apple.com/us/album/fever-in-the-silence-single/1896127153",
           "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_k59aXwHclSzy4fE4nGemvhF91t-cYEYwE",
           "youtube": "https://www.youtube.com/watch?v=QpRA4A5abNM"
+          "beatport": "https://www.beatport.com/nl/release/fever-in-the-silence/6937156",
+          "soundcloud": "https://soundcloud.com/zoyasmusic/fever-in-the-silence"
         }
       },
       {
@@ -147,6 +161,8 @@
           "apple": "https://music.apple.com/us/album/future-calling-single/1892638294",
           "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_kmJlGhOe0Zeo6JOWLLvvSXxICECLiL5uY",
           "youtube": "https://www.youtube.com/watch?v=QMuRjXK3wjE"
+          "beatport": "https://www.beatport.com/nl/release/future-calling/6878544",
+          "soundcloud": "https://soundcloud.com/zoyasmusic/future-calling"
         }
       },
       {
@@ -159,6 +175,8 @@
           "apple": "https://music.apple.com/us/album/living-the-moment-single/1880672318",
           "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_nxwbLGqWkwZVUeOR7t162--I_op904aaU",
           "youtube": "https://www.youtube.com/watch?v=LZ2X_pGdyt4"
+          "beatport": "https://www.beatport.com/nl/release/living-the-moment/6411824",
+          "soundcloud": "https://soundcloud.com/zoyasmusic/living-the-moment"
         }
       }
     ]
