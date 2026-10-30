@@ -1,5 +1,4 @@
 {
-  // The name must match the Worker name you give in the Cloudflare dashboard.
   "name": "link",
   "main": "src/worker.js",
   "compatibility_date": "2026-09-01",
@@ -7,5 +6,8 @@
     "directory": "./public",
     "binding": "ASSETS"
   },
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  "analytics_engine_datasets": [
+    { "binding": "ANALYTICS", "dataset": "zoya_links" }
+  ]
 }
