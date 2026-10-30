@@ -29,6 +29,23 @@
   const typeLabel = { single: "Single", ep: "EP", album: "Album", remix: "Remix", compilation: "Compilation" };
   const labelFor = (t = "") => typeLabel[String(t).toLowerCase()] || (t ? t.charAt(0).toUpperCase() + t.slice(1) : "Release");
 
+  /* ---------- tracking ---------- */
+
+  // Fires once per click, never delays the link it's attached to: sendBeacon queues the
+  // request and returns immediately, so the browser can navigate away right after.
+  function track(type, target = "", label = "") {
+    try {
+      const payload = JSON.stringify({ type, target, label, path: location.pathname, referrer: document.referrer });
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon("/api/track", new Blob([payload], { type: "application/json" }));
+      } else {
+        fetch("/api/track", { method: "POST", body: payload, keepalive: true, headers: { "Content-Type": "application/json" } }).catch(() => {});
+      }
+    } catch {
+      /* analytics should never be able to break the page */
+    }
+  }
+
   /* ---------- listen popup ---------- */
 
   // Order here is the order buttons appear in the popup
@@ -57,7 +74,7 @@
     $("#popup-title").textContent = item.name;
     $("#popup-artist").textContent = item.artist || "";
     $("#popup-links").innerHTML = PLATFORMS.filter(([k]) => item.links[k])
-      .map(([k, label]) => `<a class="popup__link" href="${esc(safeUrl(item.links[k]))}" target="_blank" rel="noopener">${esc(label)}</a>`)
+      .map(([k, label]) => `<a class="popup__link" href="${esc(safeUrl(item.links[k]))}" target="_blank" rel="noopener" data-track-listen="${esc(k)}" data-track-title="${esc(item.name)}">${esc(label)}</a>`)
       .join("");
     dlg.showModal();
   }
@@ -68,10 +85,16 @@
 
     document.addEventListener("click", (e) => {
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+      // A platform button inside the open popup: record which platform, then let the link proceed
+      const listenLink = e.target.closest("[data-track-listen]");
+      if (listenLink) { track("listen_click", listenLink.dataset.trackTitle, listenLink.dataset.trackListen); return; }
+
       const trigger = e.target.closest("[data-popup]");
       const item = trigger && popups[Number(trigger.dataset.popup)];
       if (!item) return;
       e.preventDefault();
+      track(trigger.dataset.trackEvent || "release_open", item.name);
       openPopup(dlg, item);
     });
     dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); }); // click on the dark backdrop
@@ -122,7 +145,7 @@
       .map((s) => {
         const label = s.label || NICE[s.type] || s.type;
         const external = /^https?:/i.test(s.url);
-        return `<li><a href="${esc(safeUrl(s.url))}" aria-label="${esc(label)}" title="${esc(label)}"${external ? ' target="_blank" rel="noopener"' : ""}>${iconFor(s.type)}</a></li>`;
+        return `<li><a href="${esc(safeUrl(s.url))}" aria-label="${esc(label)}" title="${esc(label)}" data-track-social="${esc(s.type || label)}"${external ? ' target="_blank" rel="noopener"' : ""}>${iconFor(s.type)}</a></li>`;
       })
       .join("");
 
@@ -146,6 +169,7 @@
           const open = panel.classList.toggle("is-open");
           btn.setAttribute("aria-expanded", String(open));
           btn.textContent = open ? "Show less" : "Read more";
+          if (open) track("bio_expand");
         });
       }
     }
@@ -182,7 +206,13 @@
     el.rel = "noopener";
     el.classList.remove("skeleton");
     el.removeAttribute("aria-busy");
-    if (popup && img) el.dataset.popup = registerPopup(popup);
+    if (popup && img) {
+      el.dataset.popup = registerPopup(popup);
+      el.dataset.trackEvent = "featured_open";
+    } else {
+      el.dataset.trackSimple = "featured_click";
+      el.dataset.trackTitle = item.title;
+    }
     el.innerHTML = `
       ${img ? `<img class="featured__img" src="${esc(img)}" alt="" decoding="async">` : ""}
       ${item.badge ? `<span class="featured__badge">${esc(item.badge)}</span>` : ""}
@@ -229,9 +259,12 @@
       .map((r) => {
         const isNew = r.releaseDate && daysSince(r.releaseDate) <= 45;
         const meta = [labelFor(r.type), r.year].filter(Boolean).join(", ");
-        const popupAttr = Object.keys(r.links).length > 1 ? ` data-popup="${registerPopup(r)}"` : "";
+        const hasPopup = Object.keys(r.links).length > 1;
+        const trackAttrs = hasPopup
+          ? ` data-popup="${registerPopup(r)}" data-track-event="release_open"`
+          : ` data-track-simple="release_click" data-track-title="${esc(r.name)}"`;
         return `
-        <a class="release" href="${esc(safeUrl(r.url))}" target="_blank" rel="noopener" draggable="false"${popupAttr}>
+        <a class="release" href="${esc(safeUrl(r.url))}" target="_blank" rel="noopener" draggable="false"${trackAttrs}>
           <span class="release__art">
             <img src="${esc(r.image)}" alt="" width="304" height="304" loading="lazy" draggable="false">
             ${isNew ? '<span class="pill">New</span>' : ""}
@@ -310,7 +343,7 @@
       const lead = i === 0;
       const src = lead ? v.thumbnail : v.thumbnailSmall || v.thumbnail;
       return `
-      <a class="set ${lead ? "set--lead" : "set--row"}" href="${esc(safeUrl(v.url))}" target="_blank" rel="noopener">
+      <a class="set ${lead ? "set--lead" : "set--row"}" href="${esc(safeUrl(v.url))}" target="_blank" rel="noopener" data-track-simple="set_click" data-track-title="${esc(v.title)}">
         <span class="set__thumb">
           <img src="${esc(src)}"${v.thumbnailFallback ? ` data-fallback="${esc(v.thumbnailFallback)}"` : ""} alt="" loading="${lead ? "eager" : "lazy"}">
           <span class="set__play">${ICONS.play}</span>
@@ -343,6 +376,19 @@
     }
   }
 
+  /* ---------- global click tracking ----------
+     Covers plain links marked with data-track-simple/-social, which don't open the
+     popup (a single-link release, a set, a social icon, a direct-link featured card). */
+
+  function setupSimpleTracking() {
+    document.addEventListener("click", (e) => {
+      const el = e.target.closest("[data-track-simple], [data-track-social]");
+      if (!el || e.defaultPrevented) return;
+      if (el.dataset.trackSimple) track(el.dataset.trackSimple, el.dataset.trackTitle || "");
+      else if (el.dataset.trackSocial) track("social", el.dataset.trackSocial);
+    });
+  }
+
   /* ---------- boot ---------- */
 
   async function boot() {
@@ -351,6 +397,8 @@
 
     renderTop(cfg);
     setupPopup();
+    setupSimpleTracking();
+    track("pageview");
 
     const releases = getReleases(cfg);
     // When the featured card shows the newest release, don't repeat it in the row below
