@@ -53,6 +53,18 @@
     "moreLabel": "All on Spotify",
     "moreUrl": "https://open.spotify.com/artist/5eqThkuR9VjiLuYfzESTp7",
     "items": [
+       {
+        "title": "Fading Light",
+        "type": "single",
+        "date": "2026-09-24",
+        "image": "/images/releases/Fading-light.jpg",
+        "links": {
+          "spotify": "https://open.spotify.com/album/4IHRtbTQ8pSOcLQ58B78YT",
+          "apple": "https://music.apple.com/us/album/fading-light-single/6820499051",
+          "ytmusic": "https://music.youtube.com/playlist?list=OLAK5uy_lXT9yYXCrDMYncRySfXkgEh21rrxtBWyc",
+          "youtube": ""
+        }
+      },
       {
         "title": "Not Yet",
         "type": "single",
